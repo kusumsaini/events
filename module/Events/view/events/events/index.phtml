@@ -1,0 +1,32 @@
+<?php
+ // module/Album/view/album/album/index.phtml:
+
+ $title = 'My events';
+ $this->headTitle($title);
+ $test =  $this->url('events', array('action'=>'add'));
+ ?>
+ <br/><br/>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <p>
+     <a href="<?php echo $test;?>">Add new event</a>
+ </p>
+
+ <table class="table">
+ <tr>
+     <th>Event Type</th>
+     <th>Artist</th>
+     <th>&nbsp;</th>
+ </tr>
+ <?php foreach ($events as $event) : ?>
+ <tr>
+     <td><?php echo $this->escapeHtml($event->title);?></td>
+     <td><?php echo $this->escapeHtml($event->event_type);?></td>
+     <td>
+         <a href="<?php echo $this->url('events',
+             array('action'=>'edit', 'id' => $event->id));?>/events/edit/<?php echo $event->id;?>">Edit</a>
+         <a href="<?php echo $this->url('events',
+             array('action'=>'delete', 'id' => $event->id));?>">Delete</a>
+     </td>
+ </tr>
+ <?php endforeach; ?>
+ </table>

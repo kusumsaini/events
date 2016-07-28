@@ -1,11 +1,11 @@
 <?php
 
-namespace Party;
+namespace Events;
 
 return array(
 		'controllers' => array(
 				'invokables' => array(
-						'Party\Controller\Index' => 'Party\Controller\IndexController'
+						'Events\Controller\Events' => 'Events\Controller\EventsController'
 				),
 		),
 		'view_manager' => array(
@@ -19,13 +19,13 @@ return array(
 						// new controllers and actions without needing to create a new
 						// module. Simply drop new controllers in, and you can access them
 						// using the path /application/:controller/:action
-						'party' => array(
+						'events' => array(
 								'type'    => 'Literal',
 								'options' => array(
-										'route'    => '/party',
+										'route'    => '/events',
 										'defaults' => array(
-												'__NAMESPACE__' => 'Party\Controller',
-												'controller'    => 'Index',
+												'__NAMESPACE__' => 'Events\Controller',
+												'controller'    => 'Events',
 												'action'        => 'index',
 										),
 								),
@@ -34,12 +34,13 @@ return array(
 										'default' => array(
 												'type'    => 'Segment',
 												'options' => array(
-														'route'    => '/[:controller[/:action]]',
+														'route'    => '/[:controller[/:action][/:id]]',
 														'constraints' => array(
 																'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
 																'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
 														),
 														'defaults' => array(
+														        
 														),
 												),
 										),
