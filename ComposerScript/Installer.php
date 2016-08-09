@@ -89,7 +89,7 @@ class Installer
                 continue;
             }
     
-            if (!deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
+            if (!self::rrmdir($dir . DIRECTORY_SEPARATOR . $item)) {
                 return false;
             }
     
