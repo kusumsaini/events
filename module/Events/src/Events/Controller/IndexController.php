@@ -7,7 +7,7 @@ use Zend\View\Model\ViewModel;
 use Events\Model\Event; // <-- Add this import
 use Events\Form\EventsForm;
 
-class EventsController extends AbstractActionController {
+class IndexController extends AbstractActionController {
     protected $eventsTable;
     public function indexAction() {
         return new ViewModel ( array (
@@ -91,10 +91,9 @@ class EventsController extends AbstractActionController {
                 $this->getEventsTable ()->deleteEvent ( $id );
             }
             
-            // Redirect to list of albums
+            // Redirect to list of events
             return $this->redirect ()->toRoute ( 'events' );
-        }
-        
+        }        
         return array (
                 'id' => $id,
                 'event' => $this->getEventsTable ()->getEvent ( $id ) 

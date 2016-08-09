@@ -5,7 +5,7 @@ namespace Events;
 return array(
 		'controllers' => array(
 				'invokables' => array(
-						'Events\Controller\Events' => 'Events\Controller\EventsController'
+						'Events\Controller\Index' => 'Events\Controller\IndexController'
 				),
 		),
 		'view_manager' => array(
@@ -20,12 +20,12 @@ return array(
 						// module. Simply drop new controllers in, and you can access them
 						// using the path /application/:controller/:action
 						'events' => array(
-								'type'    => 'Literal',
+								'type'    => 'segment',
 								'options' => array(
-										'route'    => '/events',
+										'route'    => '/events[/][:action][/:id]',
 										'defaults' => array(
 												'__NAMESPACE__' => 'Events\Controller',
-												'controller'    => 'Events',
+												'controller'    => 'Index',
 												'action'        => 'index',
 										),
 								),

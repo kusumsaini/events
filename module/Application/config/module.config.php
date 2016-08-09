@@ -15,7 +15,7 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'Events\Controller\Events',
+                        'controller' => 'Events\Controller\Index',
                         'action'     => 'index',
                     ),
                 ),

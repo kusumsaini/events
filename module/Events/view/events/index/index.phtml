@@ -23,7 +23,7 @@
      <td><?php echo $this->escapeHtml($event->event_type);?></td>
      <td>
          <a href="<?php echo $this->url('events',
-             array('action'=>'edit', 'id' => $event->id));?>/events/edit/<?php echo $event->id;?>">Edit</a>
+             array('controller'=>'index','action'=>'edit', 'id' => $event->id));?>">Edit</a>
          <a href="<?php echo $this->url('events',
              array('action'=>'delete', 'id' => $event->id));?>">Delete</a>
      </td>
